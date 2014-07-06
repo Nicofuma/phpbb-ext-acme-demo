@@ -22,10 +22,13 @@ branches:
     - /^develop-.*$/
 
 install:
+  - ls -la "phpBB/ext/$EXTNAME/travis/"
   - travis/prepare-phpbb.sh $EXTNAME $PHPBB_BRANCH
+  - ls -la "phpBB/ext/$EXTNAME/travis/"
   - cd ../../phpBB3
   - travis/prepare-extension.sh $EXTNAME $PHPBB_BRANCH
   - travis/setup-phpbb.sh $DB $TRAVIS_PHP_VERSION
+  - ls -la "phpBB/ext/$EXTNAME/travis/"
 
 before_script:
   - travis/setup-database.sh $DB $TRAVIS_PHP_VERSION
